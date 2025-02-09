@@ -1,9 +1,9 @@
 export default function handler(req, res) {
   res.status(200).json({
     featuredGames: [
-      { name: "Rummy Sultan", image: "/Banner.png", featured: true },
-      { name: "Teen Patti Master", image: "/Banner.png", featured: true },
-      { name: "Rummy Perfect", image: "/Banner.png", featured: true }
+      { name: "Rummy Sultan", image: "/banner.png", featured: true },
+      { name: "Teen Patti Master", image: "/banner.png", featured: true },
+      { name: "Rummy Perfect", image: "/banner.png", featured: true }
     ],
     "Recently Launched": [
       { name: "Bet54", image: "/Games/Bet54.png" },
