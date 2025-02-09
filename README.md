@@ -26,7 +26,7 @@ npm install
 # or
 yarn install
 
-##Project Structure
+###Project Structure
 
 /rummy-game
 │── public/
