@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
+import { gamesData } from '../../Utils/games';
 
 const GameDisplay = () => {
   const router = useRouter();
@@ -16,18 +17,24 @@ const GameDisplay = () => {
     if (!router.isReady) return;
 
     setLoading(true);
+    
+    // Find game data by ID from all categories
+    const game = Object.entries(gamesData)
+      .filter(([key]) => key !== 'featuredGames' && key !== 'categoryLogos' && key !== 'userReviews')
+      .flatMap(([_, games]) => games)
+      .find(g => g.id === id);
+    
     setGameData({
-      name: queryName || `Game ${id}`,
-      image: queryImage || `/Games/game${id}.png`
+      name: queryName || game?.name || `Game ${id}`,
+      image: queryImage || game?.image || `/Games/game${id}.png`
     });
 
-    fetch('/api/games')
-      .then(res => res.json())
-      .then(data => {
-        if (data.userReviews) setUserReviews(data.userReviews);
-      })
-      .catch(err => console.error('Error fetching reviews:', err))
-      .finally(() => setLoading(false));
+    // Set user reviews from imported data
+    if (game?.userReviews) {
+      setUserReviews(game.userReviews);
+    }
+    
+    setLoading(false);
 
   }, [router.isReady, id, queryName, queryImage]);
 
@@ -90,7 +97,7 @@ const GameDisplay = () => {
             <p className="text-lg mb-6">Play on India's best gaming app</p>
 
             <button className="bg-gradient-to-b from-[#57cc03] to-[#004f1c] text-white rounded-lg py-3 px-6 mb-4 font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
-              <span>Download App & Get ₹45</span>
+              <span>SignUp & Get ₹45</span>
             </button>
 
             <div className="space-y-2 text-sm">

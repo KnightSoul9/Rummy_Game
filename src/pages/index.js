@@ -1,17 +1,20 @@
 import { useEffect, useState, useCallback, memo, useContext } from "react";
 import Navbar from "@/components/Navbar";
 import GameCard from "@/components/GameCard";
-import FeaturedGame from "@/components/FeaturedGame";
-import { ChevronRight, Rocket, Flame, Star, Tv2 } from "lucide-react";
+import FeaturedGame from "@/components/FeaturedGame"; 
+import { ChevronRight, ChevronLeft, Rocket, Flame, Star, Tv2 } from "lucide-react";
 import { ThemeContext } from "../context/ThemeContext";
+import { gamesData } from "../Utils/games";
 
 // Memoize components that don't need frequent re-renders
 const MemoizedGameCard = memo(GameCard);
 const MemoizedFeaturedGame = memo(FeaturedGame);
 
 export default function Home() {
-  const [games, setGames] = useState(null);
   const [currentFeature, setCurrentFeature] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('Rummy');
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   const context = useContext(ThemeContext);
   const darkMode = context?.darkMode;
   
@@ -23,36 +26,46 @@ export default function Home() {
   };
   const scrollRefs = {};
 
-  // Fetch games data
-  useEffect(() => {
-    let isMounted = true;
-    
-    const fetchGames = async () => {
-      try {
-        const res = await fetch("/api/games");
-        const data = await res.json();
-        if (isMounted) {
-          setGames(data);
-        }
-      } catch (err) {
-        console.error("Error fetching games:", err);
-      }
-    };
+  // Handle swipe
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
 
-    fetchGames();
-    return () => { isMounted = false };
-  }, []);
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentFeature((prev) => 
+        prev === gamesData.featuredGames.length - 1 ? 0 : prev + 1
+      );
+    }
+    if (isRightSwipe) {
+      setCurrentFeature((prev) => 
+        prev === 0 ? gamesData.featuredGames.length - 1 : prev - 1
+      );
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
 
   // Auto slide featured games
   useEffect(() => {
-    if (!games?.featuredGames?.length) return;
+    if (!gamesData?.featuredGames?.length) return;
     
     const interval = setInterval(() => {
-      setCurrentFeature(prev => (prev + 1) % games.featuredGames.length);
+      setCurrentFeature(prev => (prev + 1) % gamesData.featuredGames.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [games?.featuredGames?.length]);
+  }, []);
 
   // Memoize scroll handler
   const scrollRight = useCallback((category) => {
@@ -77,33 +90,6 @@ export default function Home() {
     </div>
   );
 
-  // Early return for loading state
-  if (!games) {
-    return (
-      <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-b from-customBeige via-customBeige to-customBeige'}`}>
-        <Navbar />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-          <div className={`h-48 sm:h-64 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} animate-pulse rounded-lg mb-8`} />
-          <div className={`h-12 w-3/4 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} animate-pulse rounded-lg mb-8`} />
-          
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="mb-8 sm:mb-10 lg:mb-12">
-              <div className="flex items-center mb-4">
-                <div className={`h-12 w-12 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} animate-pulse rounded-lg mr-4`} />
-                <div className={`h-8 w-48 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} animate-pulse rounded-lg`} />
-              </div>
-              <div className="flex space-x-4 sm:space-x-6 overflow-x-hidden">
-                {[...Array(5)].map((_, j) => (
-                  <ShimmerCard key={j} />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-b from-customBeige via-customBeige to-customBeige text-gray-800'} relative overflow-hidden`}>
       <Navbar />
@@ -113,19 +99,36 @@ export default function Home() {
           <div 
             className="flex transition-transform duration-500 ease-in-out" 
             style={{ transform: `translateX(-${currentFeature * 100}%)` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            {games.featuredGames.map((game, index) => (
+            {gamesData.featuredGames.map((game, index) => (
               <div key={game.name} className="w-full flex-shrink-0">
                 <MemoizedFeaturedGame 
-                  image={game.image}
-                  title={game.name}
+                  {...game}
                   description="Join millions of players and start winning real money today! Safe, secure and instant withdrawals."
                 />
               </div>
             ))}
           </div>
+          
+          {/* Navigation Arrows */}
+          <button 
+            onClick={() => setCurrentFeature(prev => prev === 0 ? gamesData.featuredGames.length - 1 : prev - 1)}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 p-2 rounded-full text-white hover:bg-black/50 transition-colors"
+          >
+            <ChevronLeft />
+          </button>
+          <button 
+            onClick={() => setCurrentFeature(prev => (prev + 1) % gamesData.featuredGames.length)}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 p-2 rounded-full text-white hover:bg-black/50 transition-colors"
+          >
+            <ChevronRight />
+          </button>
+
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {games.featuredGames.map((_, index) => (
+            {gamesData.featuredGames.map((_, index) => (
               <button
                 key={index}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
@@ -137,15 +140,47 @@ export default function Home() {
           </div>
         </div>
 
-        <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 ${darkMode ? 'text-white' : 'bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent'}`}>
-          Casino Games
-        </h1>
+        {/* Category Buttons for Mobile View */}
+        <div className="flex justify-center gap-4 mt-6 mb-4 sm:hidden">
+          {['Rummy', 'Patti', 'Circle'].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                activeCategory === cat 
+                  ? 'bg-gradient-to-b from-[#57cc03] to-[#004f1c] text-white'
+                  : `${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'}`
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-        {Object.entries(games)
-          .filter(([key]) => key !== 'featuredGames' && key !== 'categoryLogos' && key !== 'userReviews')
-          .map(([category, gamesList]) => {
-            // Ensure gamesList is an array
-            const gamesArray = Array.isArray(gamesList) ? gamesList : [];
+        <div className="flex items-center justify-between mb-6">
+          <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold ${darkMode ? 'text-white' : 'bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent'}`}>
+            {activeCategory} Games
+          </h1>
+          {/* Category Buttons for Desktop View */}
+          <div className="hidden sm:flex gap-4">
+            {['Rummy', 'Patti', 'Circle'].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                  activeCategory === cat 
+                    ? 'bg-gradient-to-b from-[#57cc03] to-[#004f1c] text-white'
+                    : `${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-800'}`
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {Object.entries(gamesData[activeCategory.toLowerCase()])
+          .map(([category, games]) => {
             const Icon = categoryLogos[category];
             
             return (
@@ -171,9 +206,9 @@ export default function Home() {
                   ref={el => scrollRefs[category] = el}
                   className="flex overflow-x-auto space-x-4 sm:space-x-6 scrollbar-hide scroll-smooth pb-4"
                 >
-                  {gamesArray.map(game => (
+                  {games.map(game => (
                     <div key={game.name} className="transform hover:scale-105 transition-transform duration-300 w-[160px] sm:w-[200px] md:w-[220px] lg:w-[240px] flex-shrink-0">
-                      <MemoizedGameCard id={game.id} name={game.name} image={game.image} />
+                      <MemoizedGameCard {...game} category={activeCategory} />
                     </div>
                   ))}
                 </div>
