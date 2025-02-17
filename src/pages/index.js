@@ -220,7 +220,7 @@ export default function Home() {
                 >
                   <div className="grid grid-cols-2 sm:flex gap-4 sm:gap-6">
                     {games.map(game => (
-                      <div key={game.name} className="transform hover:scale-105 transition-transform duration-400 w-[150px] sm:w-[220px] md:w-[220px] lg:w-[300px] sm:flex-shrink-0">
+                      <div key={game.name} className="transform hover:scale-105 transition-transform duration-400 w-[150px] sm:w-[140px] md:w-[160px] lg:w-[200px] ">
                         <MemoizedGameCard {...game} category={activeCategory} />
                       </div>
                     ))}
