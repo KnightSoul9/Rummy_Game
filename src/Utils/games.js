@@ -83,19 +83,15 @@ const rummy = {
   "Recently Launched": [
     { id: 4, name: "Rummy Bash", image: "/Games/Rummy_Bash.png", rating: 4.5, downloads: "100K+" },
     { id: 5, name: "Rummy Bo", image: "/Games/Rummy_Bo.jpg", rating: 4.6, downloads: "50K+" },
-    { id: 6, name: "Rummy East", image: "/Games/Rummy_East.webp", rating: 4.4, downloads: "200K+" }
-  ],
-  "Most Popular": [
+    { id: 6, name: "Rummy East", image: "/Games/Rummy_East.webp", rating: 4.4, downloads: "200K+" },
     { id: 7, name: "Rummy Gems", image: "/Games/Rummy_Gems.jpg", rating: 4.9, downloads: "10M+" },
     { id: 8, name: "Rummy Glee", image: "/Games/Rummy_Glee.jpg", rating: 4.8, downloads: "8M+" },
     { id: 9, name: "Rummy Meet", image: "/Games/Rummy_Meet.jpg", rating: 4.7, downloads: "5M+" }
   ],
-  "Recommend": [
+  "Most Popular": [
     { id: 10, name: "Rummy Modern", image: "/Games/Rummy_Modern.jpg", rating: 4.6, downloads: "3M+" },
     { id: 11, name: "Rummy Only", image: "/Games/Rummy_Only.jpg", rating: 4.7, downloads: "2M+" },
-    { id: 12, name: "Rummy Ox", image: "/Games/Rummy_Ox.jpg", rating: 4.5, downloads: "1M+" }
-  ],
-  "Live Casino": [
+    { id: 12, name: "Rummy Ox", image: "/Games/Rummy_Ox.jpg", rating: 4.5, downloads: "1M+" },
     { id: 13, name: "Rummy Palms", image: "/Games/Rummy_Palms.jpg", rating: 4.8, downloads: "4M+" },
     { id: 14, name: "Rummy Sultan", image: "/Games/Rummy_Sultan.webp", rating: 4.6, downloads: "2.5M+" },
     { id: 15, name: "Rummy Up", image: "/Games/Rummy_Up.jpg", rating: 4.9, downloads: "15M+" }
@@ -106,42 +102,34 @@ const patti = {
   "Recently Launched": [
     { id: 16, name: "Teen Patti Master", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "12M+" },
     { id: 17, name: "Teen Patti Gold", image: "/Games/Teen_Patti.png", rating: 4.9, downloads: "20M+" },
-    { id: 18, name: "Teen Patti Pro", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "18M+" }
-  ],
-  "Most Popular": [
+    { id: 18, name: "Teen Patti Pro", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "18M+" },
     { id: 19, name: "Teen Patti Star", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "16M+" },
     { id: 20, name: "Teen Patti Live", image: "/Games/Teen_Patti.png", rating: 4.6, downloads: "3M+" },
     { id: 21, name: "Teen Patti Plus", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "2M+" }
   ],
-  "Recommend": [
+  "Most Popular": [
     { id: 22, name: "Teen Patti Royal", image: "/Games/Teen_Patti_Master.jpg", rating: 4.5, downloads: "1M+" },
     { id: 23, name: "Teen Patti King", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "4M+" },
-    { id: 24, name: "Teen Patti Club", image: "/Games/Teen_Patti.webp", rating: 4.6, downloads: "2.5M+" }
-  ],
-  "Live Casino": [
+    { id: 24, name: "Teen Patti Club", image: "/Games/Teen_Patti.webp", rating: 4.6, downloads: "2.5M+" },
     { id: 25, name: "Teen Patti VIP", image: "/Games/Teen_Patti_Master.jpg", rating: 4.9, downloads: "15M+" },
     { id: 26, name: "Teen Patti Elite", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "12M+" },
     { id: 27, name: "Teen Patti Premium", image: "/Games/Teen_Patti.webp", rating: 4.9, downloads: "20M+" }
-  ]
+  ],
 };
 
 const circle = {
   "Recently Launched": [
     { id: 28, name: "Circle Rush", image: "/Games/Bet54.png", rating: 4.5, downloads: "100K+" },
     { id: 29, name: "Circle Spin", image: "/Games/Dior123.png", rating: 4.6, downloads: "50K+" },
-    { id: 30, name: "Circle Win", image: "/Games/Golds_Bet.png", rating: 4.4, downloads: "200K+" }
-  ],
-  "Most Popular": [
+    { id: 30, name: "Circle Win", image: "/Games/Golds_Bet.png", rating: 4.4, downloads: "200K+" },
     { id: 31, name: "Circle Master", image: "/Games/Bet54.png", rating: 4.9, downloads: "10M+" },
     { id: 32, name: "Circle King", image: "/Games/Dior123.png", rating: 4.8, downloads: "8M+" },
     { id: 33, name: "Circle Pro", image: "/Games/Golds_Bet.png", rating: 4.7, downloads: "5M+" }
   ],
-  "Recommend": [
+  "Most Popular": [
     { id: 34, name: "Circle Elite", image: "/Games/Bet54.png", rating: 4.6, downloads: "3M+" },
     { id: 35, name: "Circle Plus", image: "/Games/Dior123.png", rating: 4.7, downloads: "2M+" },
-    { id: 36, name: "Circle Star", image: "/Games/Golds_Bet.png", rating: 4.5, downloads: "1M+" }
-  ],
-  "Live Casino": [
+    { id: 36, name: "Circle Star", image: "/Games/Golds_Bet.png", rating: 4.5, downloads: "1M+" },
     { id: 37, name: "Circle Live", image: "/Games/Bet54.png", rating: 4.8, downloads: "4M+" },
     { id: 38, name: "Circle VIP", image: "/Games/Dior123.png", rating: 4.6, downloads: "2.5M+" },
     { id: 39, name: "Circle Royal", image: "/Games/Golds_Bet.png", rating: 4.9, downloads: "15M+" }
