@@ -55,7 +55,8 @@ const featuredGames = [
     minDeposit: "₹100",
     maxBonus: "₹10,000",
     rating: 4.9,
-    downloads: "1M+"
+    downloads: "1M+",
+    downloadLink: "https://example.com/download/rummy-sultan"
   },
   {
     id: 2, 
@@ -65,7 +66,8 @@ const featuredGames = [
     minDeposit: "₹200",
     maxBonus: "₹15,000",
     rating: 4.8,
-    downloads: "5M+"
+    downloads: "5M+",
+    downloadLink: "https://example.com/download/teen-patti-master"
   },
   {
     id: 3,
@@ -75,93 +77,93 @@ const featuredGames = [
     minDeposit: "₹150",
     maxBonus: "₹12,000",
     rating: 4.7,
-    downloads: "2M+"
+    downloads: "2M+",
+    downloadLink: "https://example.com/download/rummy-perfect"
   }
 ];
 
 const all = {
   "Recently Launched": [
-    { id: 4, name: "Rummy Bash", image: "/Games/Rummy_Bash.png", rating: 4.5, downloads: "100K+" },
-    { id: 5, name: "Rummy Bo", image: "/Games/Rummy_Bo.jpg", rating: 4.6, downloads: "50K+" },
-    { id: 6, name: "Rummy East", image: "/Games/Rummy_East.webp", rating: 4.4, downloads: "200K+" },
-    { id: 7, name: "Rummy Gems", image: "/Games/Rummy_Gems.jpg", rating: 4.9, downloads: "10M+" },
-    { id: 8, name: "Rummy Glee", image: "/Games/Rummy_Glee.jpg", rating: 4.8, downloads: "8M+" },
-    { id: 9, name: "Rummy Meet", image: "/Games/Rummy_Meet.jpg", rating: 4.7, downloads: "5M+" },
-    { id: 10, name: "Rummy Modern", image: "/Games/Rummy_Modern.jpg", rating: 4.6, downloads: "3M+" },
-    { id: 11, name: "Rummy Only", image: "/Games/Rummy_Only.jpg", rating: 4.7, downloads: "2M+" },
-    { id: 12, name: "Rummy Ox", image: "/Games/Rummy_Ox.jpg", rating: 4.5, downloads: "1M+" }
+    { id: 4, name: "Rummy Bash", image: "/Games/Rummy_Bash.png", rating: 4.5, downloads: "100K+", downloadLink: "https://example.com/download/rummy-bash" },
+    { id: 5, name: "Rummy Bo", image: "/Games/Rummy_Bo.jpg", rating: 4.6, downloads: "50K+", downloadLink: "https://example.com/download/rummy-bo" },
+    { id: 6, name: "Rummy East", image: "/Games/Rummy_East.webp", rating: 4.4, downloads: "200K+", downloadLink: "https://example.com/download/rummy-east" },
+    { id: 7, name: "Rummy Gems", image: "/Games/Rummy_Gems.jpg", rating: 4.9, downloads: "10M+", downloadLink: "https://example.com/download/rummy-gems" },
+    { id: 8, name: "Rummy Glee", image: "/Games/Rummy_Glee.jpg", rating: 4.8, downloads: "8M+", downloadLink: "https://example.com/download/rummy-glee" },
+    { id: 9, name: "Rummy Meet", image: "/Games/Rummy_Meet.jpg", rating: 4.7, downloads: "5M+", downloadLink: "https://example.com/download/rummy-meet" },
+    { id: 10, name: "Rummy Modern", image: "/Games/Rummy_Modern.jpg", rating: 4.6, downloads: "3M+", downloadLink: "https://example.com/download/rummy-modern" },
+    { id: 11, name: "Rummy Only", image: "/Games/Rummy_Only.jpg", rating: 4.7, downloads: "2M+", downloadLink: "https://example.com/download/rummy-only" },
+    { id: 12, name: "Rummy Ox", image: "/Games/Rummy_Ox.jpg", rating: 4.5, downloads: "1M+", downloadLink: "https://example.com/download/rummy-ox" }
   ],
   "Most Popular": [
-    { id: 13, name: "Rummy Palms", image: "/Games/Rummy_Palms.jpg", rating: 4.8, downloads: "4M+" },
-    { id: 14, name: "Rummy Sultan", image: "/Games/Rummy_Sultan.webp", rating: 4.6, downloads: "2.5M+" },
-    { id: 15, name: "Rummy Up", image: "/Games/Rummy_Up.jpg", rating: 4.9, downloads: "15M+" },
-    { id: 16, name: "Teen Patti Master", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "12M+" },
-    { id: 17, name: "Teen Patti Gold", image: "/Games/Teen_Patti.png", rating: 4.9, downloads: "20M+" },
-    { id: 18, name: "Teen Patti Pro", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "18M+" },
-    { id: 19, name: "Teen Patti Star", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "16M+" },
-    { id: 20, name: "Teen Patti Live", image: "/Games/Teen_Patti.png", rating: 4.6, downloads: "3M+" },
-    { id: 21, name: "Teen Patti Plus", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "2M+" }
+    { id: 13, name: "Rummy Palms", image: "/Games/Rummy_Palms.jpg", rating: 4.8, downloads: "4M+", downloadLink: "https://example.com/download/rummy-palms" },
+    { id: 14, name: "Rummy Sultan", image: "/Games/Rummy_Sultan.webp", rating: 4.6, downloads: "2.5M+", downloadLink: "https://example.com/download/rummy-sultan" },
+    { id: 15, name: "Rummy Up", image: "/Games/Rummy_Up.jpg", rating: 4.9, downloads: "15M+", downloadLink: "https://example.com/download/rummy-up" },
+    { id: 16, name: "Teen Patti Master", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "12M+", downloadLink: "https://example.com/download/teen-patti-master" },
+    { id: 17, name: "Teen Patti Gold", image: "/Games/Teen_Patti.png", rating: 4.9, downloads: "20M+", downloadLink: "https://example.com/download/teen-patti-gold" },
+    { id: 18, name: "Teen Patti Pro", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "18M+", downloadLink: "https://example.com/download/teen-patti-pro" },
+    { id: 19, name: "Teen Patti Star", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "16M+", downloadLink: "https://example.com/download/teen-patti-star" },
+    { id: 20, name: "Teen Patti Live", image: "/Games/Teen_Patti.png", rating: 4.6, downloads: "3M+", downloadLink: "https://example.com/download/teen-patti-live" },
+    { id: 21, name: "Teen Patti Plus", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "2M+", downloadLink: "https://example.com/download/teen-patti-plus" }
   ],
   "Recommend": [
-    { id: 22, name: "Teen Patti Royal", image: "/Games/Teen_Patti_Master.jpg", rating: 4.5, downloads: "1M+" },
-    { id: 23, name: "Teen Patti King", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "4M+" },
-    { id: 24, name: "Teen Patti Club", image: "/Games/Teen_Patti.webp", rating: 4.6, downloads: "2.5M+" },
-    { id: 25, name: "Teen Patti VIP", image: "/Games/Teen_Patti_Master.jpg", rating: 4.9, downloads: "15M+" },
-    { id: 26, name: "Teen Patti Elite", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "12M+" },
-    { id: 27, name: "Teen Patti Premium", image: "/Games/Teen_Patti.webp", rating: 4.9, downloads: "20M+" },
-    { id: 28, name: "Circle Rush", image: "/Games/Bet54.png", rating: 4.5, downloads: "100K+" },
-    { id: 29, name: "Circle Spin", image: "/Games/Dior123.png", rating: 4.6, downloads: "50K+" },
-    { id: 30, name: "Circle Win", image: "/Games/Golds_Bet.png", rating: 4.4, downloads: "200K+" }
+    { id: 22, name: "Teen Patti Royal", image: "/Games/Teen_Patti_Master.jpg", rating: 4.5, downloads: "1M+", downloadLink: "https://example.com/download/teen-patti-royal" },
+    { id: 23, name: "Teen Patti King", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "4M+", downloadLink: "https://example.com/download/teen-patti-king" },
+    { id: 24, name: "Teen Patti Club", image: "/Games/Teen_Patti.webp", rating: 4.6, downloads: "2.5M+", downloadLink: "https://example.com/download/teen-patti-club" },
+    { id: 25, name: "Teen Patti VIP", image: "/Games/Teen_Patti_Master.jpg", rating: 4.9, downloads: "15M+", downloadLink: "https://example.com/download/teen-patti-vip" },
+    { id: 26, name: "Teen Patti Elite", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "12M+", downloadLink: "https://example.com/download/teen-patti-elite" },
+    { id: 27, name: "Teen Patti Premium", image: "/Games/Teen_Patti.webp", rating: 4.9, downloads: "20M+", downloadLink: "https://example.com/download/teen-patti-premium" },
+    { id: 28, name: "Circle Rush", image: "/Games/Bet54.png", rating: 4.5, downloads: "100K+", downloadLink: "https://example.com/download/circle-rush" },
+    { id: 29, name: "Circle Spin", image: "/Games/Dior123.png", rating: 4.6, downloads: "50K+", downloadLink: "https://example.com/download/circle-spin" },
+    { id: 30, name: "Circle Win", image: "/Games/Golds_Bet.png", rating: 4.4, downloads: "200K+", downloadLink: "https://example.com/download/circle-win" }
   ],
   "Live Casino": [
-    { id: 31, name: "Circle Master", image: "/Games/Bet54.png", rating: 4.9, downloads: "10M+" },
-    { id: 32, name: "Circle King", image: "/Games/Dior123.png", rating: 4.8, downloads: "8M+" },
-    { id: 33, name: "Circle Pro", image: "/Games/Golds_Bet.png", rating: 4.7, downloads: "5M+" },
-    { id: 34, name: "Circle Elite", image: "/Games/Bet54.png", rating: 4.6, downloads: "3M+" },
-    { id: 35, name: "Circle Plus", image: "/Games/Dior123.png", rating: 4.7, downloads: "2M+" },
-    { id: 36, name: "Circle Star", image: "/Games/Golds_Bet.png", rating: 4.5, downloads: "1M+" },
-    { id: 37, name: "Circle Live", image: "/Games/Bet54.png", rating: 4.8, downloads: "4M+" },
-    { id: 38, name: "Circle VIP", image: "/Games/Dior123.png", rating: 4.6, downloads: "2.5M+" },
-    { id: 39, name: "Circle Royal", image: "/Games/Golds_Bet.png", rating: 4.9, downloads: "15M+" }
-
+    { id: 31, name: "Circle Master", image: "/Games/Bet54.png", rating: 4.9, downloads: "10M+", downloadLink: "https://example.com/download/circle-master" },
+    { id: 32, name: "Circle King", image: "/Games/Dior123.png", rating: 4.8, downloads: "8M+", downloadLink: "https://example.com/download/circle-king" },
+    { id: 33, name: "Circle Pro", image: "/Games/Golds_Bet.png", rating: 4.7, downloads: "5M+", downloadLink: "https://example.com/download/circle-pro" },
+    { id: 34, name: "Circle Elite", image: "/Games/Bet54.png", rating: 4.6, downloads: "3M+", downloadLink: "https://example.com/download/circle-elite" },
+    { id: 35, name: "Circle Plus", image: "/Games/Dior123.png", rating: 4.7, downloads: "2M+", downloadLink: "https://example.com/download/circle-plus" },
+    { id: 36, name: "Circle Star", image: "/Games/Golds_Bet.png", rating: 4.5, downloads: "1M+", downloadLink: "https://example.com/download/circle-star" },
+    { id: 37, name: "Circle Live", image: "/Games/Bet54.png", rating: 4.8, downloads: "4M+", downloadLink: "https://example.com/download/circle-live" },
+    { id: 38, name: "Circle VIP", image: "/Games/Dior123.png", rating: 4.6, downloads: "2.5M+", downloadLink: "https://example.com/download/circle-vip" },
+    { id: 39, name: "Circle Royal", image: "/Games/Golds_Bet.png", rating: 4.9, downloads: "15M+", downloadLink: "https://example.com/download/circle-royal" }
   ]
 };
 
 const rummy = {
   "Recently Launched": [
-    { id: 16, name: "Teen Patti Master", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "12M+" },
-    { id: 17, name: "Teen Patti Gold", image: "/Games/Teen_Patti.png", rating: 4.9, downloads: "20M+" },
-    { id: 18, name: "Teen Patti Pro", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "18M+" },
-    { id: 19, name: "Teen Patti Star", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "16M+" },
-    { id: 20, name: "Teen Patti Live", image: "/Games/Teen_Patti.png", rating: 4.6, downloads: "3M+" },
-    { id: 21, name: "Teen Patti Plus", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "2M+" }
+    { id: 16, name: "Teen Patti Master", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "12M+", downloadLink: "https://example.com/download/teen-patti-master" },
+    { id: 17, name: "Teen Patti Gold", image: "/Games/Teen_Patti.png", rating: 4.9, downloads: "20M+", downloadLink: "https://example.com/download/teen-patti-gold" },
+    { id: 18, name: "Teen Patti Pro", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "18M+", downloadLink: "https://example.com/download/teen-patti-pro" },
+    { id: 19, name: "Teen Patti Star", image: "/Games/Teen_Patti_Master.jpg", rating: 4.8, downloads: "16M+", downloadLink: "https://example.com/download/teen-patti-star" },
+    { id: 20, name: "Teen Patti Live", image: "/Games/Teen_Patti.png", rating: 4.6, downloads: "3M+", downloadLink: "https://example.com/download/teen-patti-live" },
+    { id: 21, name: "Teen Patti Plus", image: "/Games/Teen_Patti.webp", rating: 4.7, downloads: "2M+", downloadLink: "https://example.com/download/teen-patti-plus" }
   ],
   "Most Popular": [
-    { id: 22, name: "Teen Patti Royal", image: "/Games/Teen_Patti_Master.jpg", rating: 4.5, downloads: "1M+" },
-    { id: 23, name: "Teen Patti King", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "4M+" },
-    { id: 24, name: "Teen Patti Club", image: "/Games/Teen_Patti.webp", rating: 4.6, downloads: "2.5M+" },
-    { id: 25, name: "Teen Patti VIP", image: "/Games/Teen_Patti_Master.jpg", rating: 4.9, downloads: "15M+" },
-    { id: 26, name: "Teen Patti Elite", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "12M+" },
-    { id: 27, name: "Teen Patti Premium", image: "/Games/Teen_Patti.webp", rating: 4.9, downloads: "20M+" }
+    { id: 22, name: "Teen Patti Royal", image: "/Games/Teen_Patti_Master.jpg", rating: 4.5, downloads: "1M+", downloadLink: "https://example.com/download/teen-patti-royal" },
+    { id: 23, name: "Teen Patti King", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "4M+", downloadLink: "https://example.com/download/teen-patti-king" },
+    { id: 24, name: "Teen Patti Club", image: "/Games/Teen_Patti.webp", rating: 4.6, downloads: "2.5M+", downloadLink: "https://example.com/download/teen-patti-club" },
+    { id: 25, name: "Teen Patti VIP", image: "/Games/Teen_Patti_Master.jpg", rating: 4.9, downloads: "15M+", downloadLink: "https://example.com/download/teen-patti-vip" },
+    { id: 26, name: "Teen Patti Elite", image: "/Games/Teen_Patti.png", rating: 4.8, downloads: "12M+", downloadLink: "https://example.com/download/teen-patti-elite" },
+    { id: 27, name: "Teen Patti Premium", image: "/Games/Teen_Patti.webp", rating: 4.9, downloads: "20M+", downloadLink: "https://example.com/download/teen-patti-premium" }
   ],
 };
 
 const teenpatti = {
   "Recently Launched": [
-    { id: 28, name: "Circle Rush", image: "/Games/Bet54.png", rating: 4.5, downloads: "100K+" },
-    { id: 29, name: "Circle Spin", image: "/Games/Dior123.png", rating: 4.6, downloads: "50K+" },
-    { id: 30, name: "Circle Win", image: "/Games/Golds_Bet.png", rating: 4.4, downloads: "200K+" },
-    { id: 31, name: "Circle Master", image: "/Games/Bet54.png", rating: 4.9, downloads: "10M+" },
-    { id: 32, name: "Circle King", image: "/Games/Dior123.png", rating: 4.8, downloads: "8M+" },
-    { id: 33, name: "Circle Pro", image: "/Games/Golds_Bet.png", rating: 4.7, downloads: "5M+" }
+    { id: 28, name: "Circle Rush", image: "/Games/Bet54.png", rating: 4.5, downloads: "100K+", downloadLink: "https://example.com/download/circle-rush" },
+    { id: 29, name: "Circle Spin", image: "/Games/Dior123.png", rating: 4.6, downloads: "50K+", downloadLink: "https://example.com/download/circle-spin" },
+    { id: 30, name: "Circle Win", image: "/Games/Golds_Bet.png", rating: 4.4, downloads: "200K+", downloadLink: "https://example.com/download/circle-win" },
+    { id: 31, name: "Circle Master", image: "/Games/Bet54.png", rating: 4.9, downloads: "10M+", downloadLink: "https://example.com/download/circle-master" },
+    { id: 32, name: "Circle King", image: "/Games/Dior123.png", rating: 4.8, downloads: "8M+", downloadLink: "https://example.com/download/circle-king" },
+    { id: 33, name: "Circle Pro", image: "/Games/Golds_Bet.png", rating: 4.7, downloads: "5M+", downloadLink: "https://example.com/download/circle-pro" }
   ],
   "Most Popular": [
-    { id: 34, name: "Circle Elite", image: "/Games/Bet54.png", rating: 4.6, downloads: "3M+" },
-    { id: 35, name: "Circle Plus", image: "/Games/Dior123.png", rating: 4.7, downloads: "2M+" },
-    { id: 36, name: "Circle Star", image: "/Games/Golds_Bet.png", rating: 4.5, downloads: "1M+" },
-    { id: 37, name: "Circle Live", image: "/Games/Bet54.png", rating: 4.8, downloads: "4M+" },
-    { id: 38, name: "Circle VIP", image: "/Games/Dior123.png", rating: 4.6, downloads: "2.5M+" },
-    { id: 39, name: "Circle Royal", image: "/Games/Golds_Bet.png", rating: 4.9, downloads: "15M+" }
+    { id: 34, name: "Circle Elite", image: "/Games/Bet54.png", rating: 4.6, downloads: "3M+", downloadLink: "https://example.com/download/circle-elite" },
+    { id: 35, name: "Circle Plus", image: "/Games/Dior123.png", rating: 4.7, downloads: "2M+", downloadLink: "https://example.com/download/circle-plus" },
+    { id: 36, name: "Circle Star", image: "/Games/Golds_Bet.png", rating: 4.5, downloads: "1M+", downloadLink: "https://example.com/download/circle-star" },
+    { id: 37, name: "Circle Live", image: "/Games/Bet54.png", rating: 4.8, downloads: "4M+", downloadLink: "https://example.com/download/circle-live" },
+    { id: 38, name: "Circle VIP", image: "/Games/Dior123.png", rating: 4.6, downloads: "2.5M+", downloadLink: "https://example.com/download/circle-vip" },
+    { id: 39, name: "Circle Royal", image: "/Games/Golds_Bet.png", rating: 4.9, downloads: "15M+", downloadLink: "https://example.com/download/circle-royal" }
   ],
 };
 
