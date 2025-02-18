@@ -184,7 +184,7 @@ const GameDisplay = () => {
             ))}
           </div>
 
-          <div className="md:w-1/2 h-[400px] overflow-hidden relative">
+          <div className="md:w-1/2 h-[300px] overflow-hidden relative">
             {selectedReviews.length > 0 && (
               <div 
                 className="transition-transform duration-500 ease-in-out"
