@@ -29,7 +29,7 @@ const userReviews = [
   {
     userId: "USR004",
     userName: "Rohan Gupta",
-    userIcon: "/Users/user4.jpg",
+    userIcon: "/users/user4.jpg",
     feedback: "Awesome game with easy withdrawals. Highly recommended for rummy lovers.",
     rating: 4.9,
     winAmount: "₹1,90,000",
@@ -38,7 +38,7 @@ const userReviews = [
   {
     userId: "USR005",
     userName: "Arjun Singh", 
-    userIcon: "/Users/user5.jpg",
+    userIcon: "/users/user5.jpg",
     feedback: "Well-designed platform with seamless gameplay. Enjoying every moment!",
     rating: 4.7,
     winAmount: "₹2,50,000",
@@ -47,7 +47,7 @@ const userReviews = [
   {
     userId: "USR006",
     userName: "Vikas Thakur", 
-    userIcon: "/Users/user6.jpg",
+    userIcon: "/users/user6.jpg",
     feedback: "Winning is fun when withdrawals are this fast! Great game to play daily.",
     rating: 4.5,
     winAmount: "₹4,00,000",
