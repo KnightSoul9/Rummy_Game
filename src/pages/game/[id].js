@@ -12,6 +12,18 @@ const GameDisplay = () => {
   const [gameData, setGameData] = useState({ name: '', image: '' });
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [selectedReviews, setSelectedReviews] = useState([]);
+  const [ratingStats, setRatingStats] = useState({
+    distribution: {
+      5: 0,
+      4: 0,
+      3: 0,
+      2: 0,
+      1: 0
+    },
+    average: 0,
+    total: 0
+  });
 
   const userReviews = gamesData.userReviews;
   const allGames = gamesData.all;
@@ -30,26 +42,45 @@ const GameDisplay = () => {
       name: queryName || game?.name || `Game ${id}`,
       image: queryImage || game?.image || `/Games/game${id}.png`
     });
+
+    // Set static rating distribution
+    const staticDistribution = {
+      5: 342,
+      4: 187,
+      3: 76,
+      2: 34,
+      1: 21
+    };
+    
+    const total = Object.values(staticDistribution).reduce((a, b) => a + b, 0);
+    const avg = (
+      (5 * staticDistribution[5] + 
+       4 * staticDistribution[4] + 
+       3 * staticDistribution[3] + 
+       2 * staticDistribution[2] + 
+       1 * staticDistribution[1]) / total
+    ).toFixed(1);
+
+    setRatingStats({
+      distribution: staticDistribution,
+      average: avg,
+      total
+    });
+
+    // Select 5 random reviews
+    const shuffled = [...userReviews].sort(() => 0.5 - Math.random());
+    setSelectedReviews(shuffled.slice(0, 5));
     
     setLoading(false);
   }, [router.isReady, id, queryName, queryImage]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentReviewIndex(prev => (prev + 1) % userReviews.length);
+      setCurrentReviewIndex(prev => (prev + 1) % 5);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [userReviews.length]);
-
-  const averageRating = userReviews.length > 0 
-    ? (userReviews.reduce((acc, review) => acc + review.rating, 0) / userReviews.length).toFixed(1)
-    : 0;
-
-  const reviewDistribution = [5, 4, 3, 2, 1].reduce((acc, stars) => {
-    acc[stars] = userReviews.filter(r => Math.floor(r.rating) === stars).length;
-    return acc;
-  }, {});
+  }, []);
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -125,59 +156,63 @@ const GameDisplay = () => {
 
         {/* Reviews Section */}
         <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className={`md:w-1/2 p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-gray-100'}`}>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="text-4xl font-bold">{averageRating}</div>
+          <div className={`md:w-1/2 p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} h-[400px]`}>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="text-5xl font-bold">{ratingStats.average}</div>
               <div className="flex flex-col">
-                <div className="flex text-yellow-400">{renderStars(averageRating)}</div>
+                <div className="flex text-yellow-400 text-xl">{renderStars(parseFloat(ratingStats.average))}</div>
                 <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {userReviews.length} reviews
+                  {ratingStats.total} reviews
                 </div>
               </div>
             </div>
 
             {[5, 4, 3, 2, 1].map(stars => (
-              <div key={stars} className="flex items-center gap-2 mb-1">
-                <span className="w-3">{stars}</span>
-                <span className="text-yellow-400">★</span>
-                <div className={`flex-1 h-2 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
+              <div key={stars} className="flex items-center gap-2 mb-4">
+                <span className="w-6 text-lg font-medium">{stars}</span>
+                <span className="text-yellow-400 text-lg">★</span>
+                <div className={`flex-1 h-3 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                   <div 
-                    className="h-full bg-yellow-400 rounded-full"
-                    style={{ width: `${(reviewDistribution[stars] / userReviews.length * 100).toFixed(1)}%` }}
+                    className="h-full bg-yellow-400 rounded-full transition-all duration-500"
+                    style={{ width: `${(ratingStats.distribution[stars] / ratingStats.total * 100).toFixed(1)}%` }}
                   />
                 </div>
-                <span className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} w-16`}>
-                  {reviewDistribution[stars]}
+                <span className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} w-20 text-right`}>
+                  {ratingStats.distribution[stars]}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="md:w-1/2 relative h-[200px] overflow-hidden">
-            <div 
-              className="transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateY(-${currentReviewIndex * 200}px)` }}
-            >
-              {userReviews.map((review, index) => (
-                <div 
-                  key={review.userId}
-                  className={`p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} absolute w-full h-[200px]`}
-                  style={{ top: `${index * 200}px` }}
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <img src={review.userIcon} alt={review.userName} className="w-10 h-10 rounded-full" />
-                    <div>
-                      <div className="font-semibold">{review.userName}</div>
-                      <div className="text-yellow-400 text-sm">{renderStars(review.rating)}</div>
+          <div className="md:w-1/2 h-[400px] overflow-hidden relative">
+            {selectedReviews.length > 0 && (
+              <div 
+                className="transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateY(-${currentReviewIndex * 400}px)` }}
+              >
+                {selectedReviews.map((review, index) => (
+                  <div 
+                    key={review.userId}
+                    className={`p-6 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} absolute w-full h-[400px]`}
+                    style={{ top: `${index * 400}px` }}
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <img src={review.userIcon} alt={review.userName} className="w-16 h-16 rounded-full object-cover border-2 border-yellow-400" />
+                      <div>
+                        <div className="font-bold text-xl mb-1">{review.userName}</div>
+                        <div className="text-yellow-400 text-lg">{renderStars(review.rating)}</div>
+                      </div>
                     </div>
-                    <div className="ml-auto text-green-500 font-semibold">
+                    <div className="mb-4 text-green-500 font-bold text-xl">
                       Won {review.winAmount}
                     </div>
+                    <p className={`text-lg leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                      "{review.feedback}"
+                    </p>
                   </div>
-                  <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{review.feedback}</p>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

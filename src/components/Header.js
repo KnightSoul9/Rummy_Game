@@ -3,9 +3,18 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-b from-customBeige via-customBeige to-customBeige text-white py-2 px-6 flex justify-between items-center">
-      <div className="flex items-center gap-2">
-        <Image src="/siteLogo.png" alt="Logo" width={200} height={100} />
+    <header className="bg-gradient-to-b from-customBeige to-customBeige shadow-md py-3 px-6">
+      <div className="container mx-auto flex justify-center">
+        <Link href="/">
+          <Image 
+            src="/siteLogo.png" 
+            alt="Logo" 
+            width={160} 
+            height={80} 
+            className="h-auto w-auto"
+            priority 
+          />
+        </Link>
       </div>
     </header>
   );

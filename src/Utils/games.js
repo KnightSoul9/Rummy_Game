@@ -1,48 +1,147 @@
 const userReviews = [
   {
     userId: "USR001",
-    userName: "Rajesh Kumar", 
-    userIcon: "/users/user1.png",
-    feedback: "Amazing game, won big amount on first try. Graphics and gameplay are super smooth.",
-    rating: 4.8,
-    winAmount: "₹1.2 Crore",
-    date: "2024-01-15"
+    userName: "Rahul Mehta", 
+    userIcon: "/users/user1.jpg",
+    feedback: "Absolutely love this game! The interface is smooth, and winnings are instant.",
+    rating: 4.7,
+    winAmount: "₹4,50,000",
+    date: "2024-02-01"
   },
   {
     userId: "USR002",
     userName: "Priya Sharma",
-    userIcon: "/users/user2.png", 
-    feedback: "Best rummy game I've played so far. Quick withdrawals and excellent customer support.",
-    rating: 4.9,
-    winAmount: "₹85 Lac",
-    date: "2024-01-14"
+    userIcon: "/users/user2.jpg", 
+    feedback: "Great platform with fair gameplay. Customer support is very responsive!",
+    rating: 4.8,
+    winAmount: "₹3,20,000",
+    date: "2024-02-02"
   },
   {
     userId: "USR003", 
     userName: "Amit Patel",
-    userIcon: "/users/user3.png",
-    feedback: "Very addictive game with fair gameplay. Won multiple times, instant withdrawal process.",
-    rating: 4.7, 
-    winAmount: "₹1.8 Crore",
-    date: "2024-01-13"
+    userIcon: "/users/user3.jpg",
+    feedback: "Very exciting and competitive games. Quick payouts make it even better!",
+    rating: 4.6, 
+    winAmount: "₹2,80,000",
+    date: "2024-02-03"
   },
   {
     userId: "USR004",
-    userName: "Neha Verma",
-    userIcon: "/users/user4.png",
-    feedback: "Fantastic gaming experience with real players. Interface is user friendly and secure.",
+    userName: "Rohan Gupta",
+    userIcon: "/Users/user4.jpg",
+    feedback: "Awesome game with easy withdrawals. Highly recommended for rummy lovers.",
     rating: 4.9,
-    winAmount: "₹95 Lac",
-    date: "2024-01-12"
+    winAmount: "₹1,90,000",
+    date: "2024-02-04"
   },
   {
     userId: "USR005",
     userName: "Arjun Singh", 
-    userIcon: "/users/user5.png",
-    feedback: "Great platform for rummy lovers. Regular bonuses and exciting tournaments available.",
+    userIcon: "/Users/user5.jpg",
+    feedback: "Well-designed platform with seamless gameplay. Enjoying every moment!",
+    rating: 4.7,
+    winAmount: "₹2,50,000",
+    date: "2024-02-05"
+  },
+  {
+    userId: "USR006",
+    userName: "Vikas Thakur", 
+    userIcon: "/Users/user6.jpg",
+    feedback: "Winning is fun when withdrawals are this fast! Great game to play daily.",
+    rating: 4.5,
+    winAmount: "₹4,00,000",
+    date: "2024-02-06"
+  },
+  {
+    userId: "USR007",
+    userName: "Sandeep Yadav",
+    userIcon: "/users/user7.jpg",
+    feedback: "One of the best online games I’ve played! Simple UI and fast transactions.",
     rating: 4.8,
-    winAmount: "₹1.5 Crore",
-    date: "2024-01-11"
+    winAmount: "₹3,70,000",
+    date: "2024-02-07"
+  },
+  {
+    userId: "USR008",
+    userName: "Nikhil Verma",
+    userIcon: "/users/user8.jpg",
+    feedback: "Addictive and rewarding. Playing daily and loving the challenges.",
+    rating: 4.6,
+    winAmount: "₹2,00,000",
+    date: "2024-02-08"
+  },
+  {
+    userId: "USR009",
+    userName: "Anuj Mishra",
+    userIcon: "/users/user9.jpg",
+    feedback: "Enjoying every bit of this game. Worth every minute spent!",
+    rating: 4.9,
+    winAmount: "₹1,50,000",
+    date: "2024-02-09"
+  },
+  {
+    userId: "USR010",
+    userName: "Karan Joshi", 
+    userIcon: "/users/user10.jpg",
+    feedback: "Fun and exciting. The competition makes it more thrilling!",
+    rating: 4.5,
+    winAmount: "₹50,000",
+    date: "2024-02-10"
+  },
+  {
+    userId: "USR011",
+    userName: "Manoj Tiwari",
+    userIcon: "/users/user11.jpg",
+    feedback: "A fantastic way to enjoy rummy. Fair gameplay and quick earnings.",
+    rating: 4.6,
+    winAmount: "₹4,20,000",
+    date: "2024-02-11"
+  },
+  {
+    userId: "USR012",
+    userName: "Sumit Das",
+    userIcon: "/users/user12.jpg",
+    feedback: "Fast withdrawals and fair matches. Playing every day!",
+    rating: 4.7,
+    winAmount: "₹3,40,000",
+    date: "2024-02-12"
+  },
+  {
+    userId: "USR013",
+    userName: "Ravi Kapoor", 
+    userIcon: "/users/user13.jpg",
+    feedback: "Excellent UI and competitive games. A must-try for card game lovers.",
+    rating: 4.8,
+    winAmount: "₹2,10,000",
+    date: "2024-02-13"
+  },
+  {
+    userId: "USR014",
+    userName: "Aditya Saxena",
+    userIcon: "/users/user14.jpg",
+    feedback: "Superb experience! I enjoy every session I play here.",
+    rating: 4.9,
+    winAmount: "₹1,30,000",
+    date: "2024-02-14"
+  },
+  {
+    userId: "USR015",
+    userName: "Sahil Malhotra",
+    userIcon: "/users/user15.jpg",
+    feedback: "Brilliantly designed game with amazing rewards!",
+    rating: 4.8,
+    winAmount: "₹90,000",
+    date: "2024-02-15"
+  },
+  {
+    userId: "USR016",
+    userName: "Harshdeep Singh",
+    userIcon: "/users/user16.jpg",
+    feedback: "Absolutely fantastic game with great winning potential!",
+    rating: 4.7,
+    winAmount: "₹3,90,000",
+    date: "2024-02-16"
   }
 ];
 
